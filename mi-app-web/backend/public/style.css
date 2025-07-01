@@ -1,0 +1,127 @@
+/* FUENTE ELEGANTE */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+/* FONDO ANIMADO - ESTILO OLAS */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, #2563eb, #ffffff);
+  animation: ondas 10s ease-in-out infinite alternate;
+  z-index: -1;
+  opacity: 0.6;
+  transform: rotate(0deg);
+  background-size: 200% 200%;
+}
+
+@keyframes ondas {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: rotate(1deg);
+  }
+}
+
+/* BOTONES */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+/* SECCIONES Y VISTAS */
+#vista-inicio, #vista-archivos, #vista-textos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* PUBLICACIONES (CARDS) */
+.publicacion {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 15px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.publicacion:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* MULTIMEDIA */
+img, video, audio {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover; /* Sugerencia: mejora la visualización de imágenes y videos */
+}
+
+/* Mejorar el aspecto de los textos dentro de las cards */
+.publicacion p {
+  margin: 8px 0 0 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* CONTENEDORES */
+#contenedor-archivos,
+#contenedor-textos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .publicacion {
+    margin: 10px 0 !important;
+    width: 98%;
+  }
+
+  button {
+    width: 90%;
+  }
+}
