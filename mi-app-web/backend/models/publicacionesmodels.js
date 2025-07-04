@@ -33,3 +33,4 @@ const Publicaciones = sequelize.define('Publicaciones', {
 });
 
 module.exports = Publicaciones;
+  
